@@ -1,22 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
-
-interface CurrencyInfo {
-  rank: number;
-  id: string;
-  supply: number;
-  maxSupply: number;
-  marketCapUsd: number;
-  volumeUsd24H: number;
-  priceUsd: number;
-  changePercent24H: number;
-  vwap24hr: number;
-}
-
-type CryptoResponse = {
-  data: CurrencyInfo[];
-  timestamp: Date;
-};
+import { CryptoResponse } from "./types/ApiResponseTypes";
 
 function App() {
   const [crypto, setCrypto] = useState<CryptoResponse>();
@@ -37,22 +21,18 @@ function App() {
 
   return (
     <h1>
-      {crypto &&
-        crypto.data.map((e) => {
-          return (
-            <ul>
+      <ul>
+        {crypto &&
+          crypto.data.map((e) => {
+            return (
               <li key={e.rank}>
                 {e.id}: {e.priceUsd.toString().slice()}
               </li>
-            </ul>
-          );
-        })}
+            );
+          })}
+      </ul>
     </h1>
   );
 }
 
 export default App;
-
-//
-
-// https://api.coincap.io/v2/assets
