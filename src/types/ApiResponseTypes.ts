@@ -11,6 +11,6 @@ interface CurrencyInfo {
 }
 
 export type CryptoResponse = {
-  data: CurrencyInfo[];
+  data: CurrencyInfo[] | [];
   timestamp: Date;
 };

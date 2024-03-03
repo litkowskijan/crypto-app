@@ -1,37 +1,45 @@
-import axios, { AxiosError, AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
+import getCrypto from "./libs/coincapHelpers";
 import { CryptoResponse } from "./types/ApiResponseTypes";
+import TopCrypto from "./components/TopCrypto";
 
 function App() {
-  const [crypto, setCrypto] = useState<CryptoResponse>();
+  const [crypto, setCrypto] = useState<CryptoResponse>({
+    data: [],
+    timestamp: new Date(),
+  });
 
   useEffect(() => {
-    axios
-      .get("https://api.coincap.io/v2/assets")
-      .then(function (response: AxiosResponse<CryptoResponse, AxiosError>) {
-        setCrypto(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-      .finally(function () {
-        console.info("Done");
-      });
+    const storage = localStorage.getItem("crypto");
+    if (storage) {
+      setCrypto(JSON.parse(storage) as CryptoResponse);
+    } else {
+      (async () => {
+        try {
+          const response = await getCrypto();
+          setCrypto(response as CryptoResponse);
+          localStorage.setItem("crypto", JSON.stringify(response));
+        } catch (error) {
+          console.error(error);
+        }
+      })();
+    }
   }, []);
 
   return (
-    <h1>
-      <ul>
-        {crypto &&
-          crypto.data.map((e) => {
-            return (
-              <li key={e.rank}>
-                {e.id}: {e.priceUsd.toString().slice()}
-              </li>
-            );
-          })}
-      </ul>
-    </h1>
+    <main
+      style={{
+        display: "flex",
+        width: "100%",
+        height: "100vh",
+        flexWrap: "wrap",
+        flexDirection: "row",
+        gap: "20px",
+        padding: "5px",
+      }}
+    >
+      <TopCrypto props={crypto} />
+    </main>
   );
 }
 
