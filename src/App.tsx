@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import getCrypto from "./libs/coincapHelpers";
 import { CryptoResponse } from "./types/ApiResponseTypes";
 import TopCrypto from "./components/TopCrypto";
+import Layout from "./pages/Layout";
 
 function App() {
   const [crypto, setCrypto] = useState<CryptoResponse>({
@@ -27,19 +28,9 @@ function App() {
   }, []);
 
   return (
-    <main
-      style={{
-        display: "flex",
-        width: "100%",
-        height: "100vh",
-        flexWrap: "wrap",
-        flexDirection: "row",
-        gap: "20px",
-        padding: "5px",
-      }}
-    >
-      <TopCrypto props={crypto} />
-    </main>
+    <Layout>
+      <TopCrypto props={crypto} />;
+    </Layout>
   );
 }
 
