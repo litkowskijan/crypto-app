@@ -31,7 +31,3 @@ function TopCrypto({ props }: TopCryptoProps) {
 }
 
 export default TopCrypto;
-
-/* 
-    
-*/
