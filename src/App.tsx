@@ -3,6 +3,7 @@ import getCrypto from "./libs/coincapHelpers";
 import { CryptoResponse } from "./types/ApiResponseTypes";
 import TopCrypto from "./components/TopCrypto";
 import Layout from "./pages/Layout";
+import CurrencySearch from "./components/CurrencySearch";
 
 function App() {
   const [crypto, setCrypto] = useState<CryptoResponse>({
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <Layout>
+      <CurrencySearch props={crypto} />
       <TopCrypto props={crypto} />;
     </Layout>
   );

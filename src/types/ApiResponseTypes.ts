@@ -1,4 +1,4 @@
-interface CurrencyInfo {
+export interface CurrencyInfo {
   rank: number;
   id: string;
   supply: number;

@@ -26,5 +26,7 @@ module.exports = {
     "react/no-unescaped-entities": 0,
     "import/no-extraneous-dependencies": 0,
     "react-hooks/exhaustive-deps": 0,
+    "consistent-return": 0,
+    "react/prop-types": 0,
   },
 };
