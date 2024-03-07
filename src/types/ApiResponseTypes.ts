@@ -6,7 +6,7 @@ export interface CurrencyInfo {
   marketCapUsd: number;
   volumeUsd24H: number;
   priceUsd: number;
-  changePercent24H: number;
+  changePercent24Hr: number;
   vwap24hr: number;
 }
 
