@@ -4,6 +4,7 @@ import { CryptoResponse } from "./types/ApiResponseTypes";
 import TopCrypto from "./components/TopCrypto";
 import Layout from "./pages/Layout";
 import CurrencySearch from "./components/CurrencySearch";
+import LastRefreshed from "./components/LastRefreshed";
 
 function App() {
   const [crypto, setCrypto] = useState<CryptoResponse>({
@@ -30,8 +31,9 @@ function App() {
 
   return (
     <Layout>
+      <LastRefreshed props={crypto.timestamp} />
       <CurrencySearch props={crypto} />
-      <TopCrypto props={crypto} />;
+      <TopCrypto props={crypto} />
     </Layout>
   );
 }
