@@ -15,7 +15,7 @@ function useDebouncedValue(value: string) {
     }
     const timeoutId = setTimeout(() => {
       setDebouncedValue(value);
-    }, 300);
+    }, 500);
     return () => clearTimeout(timeoutId);
   }, [value]);
 

@@ -29,8 +29,9 @@ function App() {
         }
       })();
     }
-    const currentDate = new Date().toLocaleString();
-    setCookies("lastRefresh", currentDate);
+    if (!cookies.lastRefresh) {
+      setCookies("lastRefresh", crypto.timestamp || null);
+    }
   }, []);
 
   return (
