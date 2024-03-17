@@ -40,6 +40,7 @@ function TopCrypto({ props }: TopCryptoProps) {
                 </span>
               </div>
               <p>Market cap: {marketCapFormatter(e.marketCapUsd)}</p>
+              <p>{e.priceUsd}</p>
             </div>
           );
         })}

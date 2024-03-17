@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 import getCrypto from "./libs/coincapHelpers";
 import { CryptoResponse } from "./types/ApiResponseTypes";
 import TopCrypto from "./components/TopCrypto";
@@ -11,6 +12,7 @@ function App() {
     data: [],
     timestamp: new Date(),
   });
+  const [cookies, setCookies] = useCookies(["lastRefresh"]);
 
   useEffect(() => {
     const storage = localStorage.getItem("crypto");
@@ -27,11 +29,14 @@ function App() {
         }
       })();
     }
+    if (!cookies.lastRefresh) {
+      setCookies("lastRefresh", crypto.timestamp || null);
+    }
   }, []);
 
   return (
     <Layout>
-      <LastRefreshed props={crypto.timestamp} />
+      <LastRefreshed />
       <CurrencySearch props={crypto} />
       <TopCrypto props={crypto} />
     </Layout>

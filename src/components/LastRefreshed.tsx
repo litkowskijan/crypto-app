@@ -1,13 +1,19 @@
 import { format } from "date-fns";
+import { useCookies } from "react-cookie";
 
-interface LastRefreshedProps {
-  props: Date;
-}
+function LastRefreshed() {
+  const [cookies] = useCookies(["lastRefresh"]);
+  const lastRefreshDate =
+    format(new Date(cookies.lastRefresh), "MM/dd/yyyy HH:mm") ||
+    "Crypto was never refreshed before";
 
-function LastRefreshed({ props }: LastRefreshedProps) {
   return (
     <div>
-      <p>Last refreshed: {format(props, "MMMM dd, yyyy HH:mm:ss")}</p>
+      {lastRefreshDate ? (
+        <p>Last refreshed on: {lastRefreshDate}</p>
+      ) : (
+        <p>Data has never been refreshed.</p>
+      )}
     </div>
   );
 }
