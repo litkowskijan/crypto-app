@@ -7,6 +7,7 @@ import Layout from "./pages/Layout";
 import CurrencySearch from "./components/CurrencySearch";
 import LastRefreshed from "./components/LastRefreshed";
 import RefreshButton from "./components/RefreshButton";
+import "./app.scss";
 
 function App() {
   const [crypto, setCrypto] = useState<CryptoResponse>({
