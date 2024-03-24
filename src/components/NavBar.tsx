@@ -1,8 +1,8 @@
 function NavBar() {
   return (
-    <nav>
-      <p className="test">Navbar here</p>
-    </nav>
+    <div className="navbar__container">
+      <h1 className="navbar__title">Crypto app</h1>
+    </div>
   );
 }
 
