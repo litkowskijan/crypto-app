@@ -1,3 +1,15 @@
-.test {
-    color: red;
+.navbar__container {
+    height: 80px;
+    width: 100%;
+    background-color: $color-coolgray;
+    box-shadow: 0 0 50px 20px $color-prussianblue;
+    
+    .navbar__title {
+        font-family: $font-pacifico;
+        color: $color-alabaster;
+        letter-spacing: 2px;
+        font-size: 2rem;
+        line-height: 80px;
+        margin-left: 40px;
+    }
 }
