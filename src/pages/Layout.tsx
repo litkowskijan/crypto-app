@@ -13,7 +13,6 @@ function Layout({ children }: LayoutProps) {
         style={{
           display: "flex",
           width: "100%",
-          height: "100vh",
           flexWrap: "wrap",
           flexDirection: "row",
           gap: "20px",

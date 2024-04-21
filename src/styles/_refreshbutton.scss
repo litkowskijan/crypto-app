@@ -1,0 +1,23 @@
+.refresh__button__box {
+    margin: 20px 40px;
+
+    .refresh__button {
+          background-color: $color-alabaster;
+          border: 1px solid $color-prussianblue;
+          border-radius: 25px;
+          color: $color-prussianblue;
+          font-family: Calibri;
+          cursor: pointer;
+          font-size: 20px;
+          line-height: 30px;
+          font-weight: 600;
+          width: 100px;
+          transition: all .1s cubic-bezier(.4, 0, .2, 1);
+        
+        &:hover {
+          background-color: $color-prussianblue;
+          color: $color-alabaster;
+        }
+        
+    }
+}

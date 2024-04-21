@@ -44,8 +44,8 @@ function CurrencySearch({ props }: SearchCryptoProps) {
   }, [debouncedValue, props]);
 
   return (
-    <section>
-      <form onSubmit={(e) => e.preventDefault()}>
+    <section className="search__section">
+      <form className="search__form" onSubmit={(e) => e.preventDefault()}>
         <label htmlFor="filter">
           Look for a coin:
           <input
