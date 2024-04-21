@@ -7,8 +7,10 @@ interface RefreshButtonProps {
 
 const RefreshButton: React.FC<RefreshButtonProps> = ({ props }) => {
   return (
-    <p>
-      <button onClick={async () => await props()}>asd</button>
+    <p className="refresh__button__box">
+      <button className="refresh__button" onClick={async () => await props()}>
+        Refresh
+      </button>
     </p>
   );
 };

@@ -11,11 +11,11 @@ function LastRefreshed() {
   }
 
   return (
-    <div>
+    <div className="lastrefreshed__container">
       {lastRefreshDate ? (
-        <p>Last refreshed on: {lastRefreshDate}</p>
+        <p className="last__refreshed">Last refreshed on: {lastRefreshDate}</p>
       ) : (
-        <p>Data has never been refreshed.</p>
+        <p className="never__refreshed">Data has never been refreshed.</p>
       )}
     </div>
   );
